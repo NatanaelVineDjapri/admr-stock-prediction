@@ -1,0 +1,35 @@
+==============================
+CATATAN/NOTE Project
+=============================
+
+Output (Y):
+1. Open_Besok
+2. High_Besok
+3. Low_Besok
+4. Close_Besok
+
+Input (X) :
+1. Teknikal & Volatilitas 
+    - SMA_10 & SMA_30
+    - RSI_14
+    - MACD 
+    - Average True Range (ATR) / Volatilitas (High - Low)
+2. Support & Resis
+    - Rolling Min (Support level dari 20-hari & 50-hari ke belakang)
+    - Rolling Max (Resistance level dari 20-hari & 50-hari ke belakang)
+    - Pivot Points (Titik Pivot, R1, R2, S1, S2) -> Nilai rata rata dri HLC buat cek tren
+    - Bollinger Bands (Upper Band, Middle Band, Lower Band)
+3. Induk & Komoditas
+    - ADRO
+    - IHSG (^JKSE)
+    - Net Foreign Flow 
+    - Cooking Coal Price
+    - Kurs USDIDR
+4. Fitur Spesifik:
+    - Harga Open, High, Low, Close
+    - Volume
+5. Time Features:
+    - Day of Week (0 = Senin ... 4 = Jumat)
+    - Month (1-12, buat nangkep siklus musiman) 
+
+.\env\Scripts\activate
