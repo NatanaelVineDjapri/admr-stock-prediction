@@ -2,34 +2,29 @@
 CATATAN/NOTE Project
 =============================
 
-Output (Y):
-1. Open_Besok
-2. High_Besok
-3. Low_Besok
-4. Close_Besok
+1. Target definition:
+    Target A: klasifikasi arah (naik/turun) besok
+    Target B: regresi OHLC besok (atau % change OHLC)
 
-Input (X) :
-1. Teknikal & Volatilitas 
-    - SMA_10 & SMA_30
-    - RSI_14
-    - MACD 
-    - Average True Range (ATR) / Volatilitas (High - Low)
-2. Support & Resis
-    - Rolling Min (Support level dari 20-hari & 50-hari ke belakang)
-    - Rolling Max (Resistance level dari 20-hari & 50-hari ke belakang)
-    - Pivot Points (Titik Pivot, R1, R2, S1, S2) -> Nilai rata rata dri HLC buat cek tren
-    - Bollinger Bands (Upper Band, Middle Band, Lower Band)
-3. Induk & Komoditas
-    - ADRO
-    - IHSG (^JKSE)
-    - Net Foreign Flow 
-    - Cooking Coal Price
-    - Kurs USDIDR
-4. Fitur Spesifik:
-    - Harga Open, High, Low, Close
-    - Volume
-5. Time Features:
-    - Day of Week (0 = Senin ... 4 = Jumat)
-    - Month (1-12, buat nangkep siklus musiman) 
 
-.\env\Scripts\activate
+2. Data collection:
+    OHLCV historis ADMR
+    Data makro (kurs, harga coking coal, IHSG)
+    Data broker summary / foreign flow (kalau available)
+
+
+3. Feature engineering:
+    Technical indicators dari OHLCV
+    Broker net buy/sell (rolling 3-5 hari)
+    Foreign flow ratio
+
+
+4. Modeling:
+    Model klasifikasi terpisah dari model regresi (biasanya lebih clean daripada dipaksa jadi satu model)
+    Bandingkan dengan/tanpa fitur broker buat lihat seberapa besar dampaknya
+
+
+5. Evaluation:
+    Klasifikasi: accuracy, precision/recall, confusion matrix
+    Regresi: RMSE per OHLC component
+    Feature importance: cek apakah fitur broker beneran nambah predictive power atau nggak
